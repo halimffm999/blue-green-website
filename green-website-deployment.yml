@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:green
+  namespace: default
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name:green
+  template:
+    metadata:
+      labels:
+        name:green
+    spec:
+      containers:
+      - name:green-website
+        image: aquamarine/kublr-tutorial-images:green
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 200
+
+#docker pull aquamarine/kublr-tutorial-images
+# https://hub.docker.com/r/aquamarine/kublr-tutorial-images
