@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: blue
+  namespace: default
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        name: blue
+    spec:
+      containers:
+      - name: blue-website
+        image: aquamarine/kublr-tutorial-images:blue
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 200
